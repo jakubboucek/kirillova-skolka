@@ -1,4 +1,4 @@
-# Kirillova školka - Lekce 1
+# Kirillova školka - Lekce 2
 **Téma: Git, GitHub, clonování, první commit**
 
 ## Zadání
