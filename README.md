@@ -4,4 +4,4 @@
 ## Zadání
 Aktualizuj si u sebe větev `master` (pomocí `pull`) a následně proveď nějakou změnu a tu mi pomocí **Pull requestu** nabídni.
 
-Nějaká změna
+Nějaká změna.
