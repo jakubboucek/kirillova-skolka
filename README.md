@@ -1,6 +1,5 @@
-# Kirillova školka - Lekce 2
-**Téma: Git, GitHub, clonování, první commit**
+# Kirillova školka - Lekce 3
+**Téma: Pull-request**
 
 ## Zadání
-Tento repozitář si naklonuj do svého počítače, oprav tento překlep a commitni opravu zpět na GitHub. sdkcsdlkm
-ahsdbkcajsdbchkasbdhcjk
+Aktualizuj si u sebe větev `master` (pomocí `pull`) a následně proveď nějakou změnu a tu mi pomocí **Pull requestu** nabídni.
