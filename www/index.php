@@ -13,14 +13,12 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-if (isset($_GET['id']) && $_GET['id'] > 0 && ($_GET['id']) <= count($items))
-{    
+if (isset($_GET['id']) && 
+    isset($items[$_GET['id']])) {    
     $id = $_GET['id'];
     
     echo "Byla vybarána tato položka: " . $items[$id];
-}
-else
-{
+} else {
     echo '<form method="get">Zadejte číslo od 1 do 8: <input name="id"><input type="submit">';
 }
 
