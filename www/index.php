@@ -2,7 +2,7 @@
 
 require './assets/nice-html.php';
 
-$id = $_GET[id];
+$id = $_GET['id'];
 
 $items = [
     1 => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
