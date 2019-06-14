@@ -1,4 +1,7 @@
 <?php
+declare(strict_types=1);
+
+
 
 require './assets/nice-html.php';
 
@@ -14,30 +17,49 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-function getId()
+function getId(): ?int
 {
-    if (isset($_GET['id'])) {
-        return $_GET['id'];
-    } else {
-        return null;
-    }
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        return (int) $_GET['id'];
+    } 
+    
+    return null;
 }
 
-function getValueFromItems($items, $key) 
+function printValueFromItems($items, $key) 
+{
+    // if ($key!==null) {
+    //     if (isset($items[$key])) {
+    //         echo "Byla vybrána tato položka: " . $items[$key];
+    //     } else {
+    //         echo '<div>Error: Tato polozka neexistuje</div>';
+    //         http_response_code(404);
+    //     }
+    // } else {
+    //     http_response_code();
+    //     echo '<form method="get">Zadejte číslo od 1 do 8: <input name="id"><input type="submit">';
+    // }  
+}
+
+function getValueFromItems($items, $key)
 {
     if ($key!==null) {
         if (isset($items[$key])) {
-            echo "Byla vybarána tato položka: " . $items[$key];
+            return $items[$key];
+            // echo "Byla vybrána tato položka: " . $items[$key];
         } else {
-            echo '<div>Error: Tato polozka neexistuje</div>';
+            header(http_response_code(404));
+            // echo '<div>Error: Tato polozka neexistuje</div>';
         }
     } else {
-        echo '<form method="get">Zadejte číslo od 1 do 8: <input name="id"><input type="submit">';
-    }
+        header(http_response_code(404));
+        // http_response_code();
+        // echo '<form method="get">Zadejte číslo od 1 do 8: <input name="id"><input type="submit">';
+    }  
 }
 
-getValueFromItems($items, getId());
 
+printValueFromItems($items, getId());
 
 
 
