@@ -1,6 +1,6 @@
 <?php
 
-require './assets/nice-html.php';
+echo file_get_contents('./assets/nice-html.php');
 
 $items = [
     0 => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
@@ -23,7 +23,7 @@ function getId()
     }
 }
 
-function getValueFromItems($items, $key) 
+function getValueFromItems($items, $key)
 {
     if ($key!==null) {
         if (isset($items[$key])) {
