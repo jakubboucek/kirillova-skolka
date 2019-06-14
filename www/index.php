@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 
 
-require './assets/nice-html.php';
+echo file_get_contents('./assets/nice-html.html');
 
 $items = [
     0 => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
