@@ -1,8 +1,18 @@
-# Kirillova školka - Lekce 4
-**Téma: PHP ošetření**
+# Kirillova školka - Lekce 5
+**Téma: Výjimka**
 
 ## Zadání
-Ve složce `www` je soubor `index.php`. Je v něm několik chyb, které oprav dle vlastního uvážení.
+V souboru [index.php](www/index.php) uprav funkci `getValueFromItems()` tak, aby v případě, že nenajde v poli odpovídající
+položku, aby vyhodila [Exception](https://www.php.net/manual/en/language.exceptions.php).
+Zbytek aplikace uprav tak, aby se chovala stejně jako doposud.
+
+## Novinky
+Kód jsem upravil do stavu, jaký jsem očekával v rámci Lesson 4. Co bych především vyzdvihnul:
+- všechny funkce mají striktní typování argumentů a návratovách hodnot,
+- je zcela oddělena logika parsování `$_GET['id']` hodnoty a hledání v poli `$items`.
+
+GitHub nyní hlídá správnost formátování. Jakmile uděláš `Push`, automaticky se spustí kontrola, která prověří formátování
+kódu – pokud nebude něco správně, pošle ti e-mail a výsledek zobrazí v [přehledu commitů](https://github.com/jakubboucek/kirillova-skolka/commits/master). 
 
 ## Požadavky
 - Dodržuj coding-standard dle [**PSR-2**](https://www.php-fig.org/psr/psr-2/) (pozor, není kompatibilní s formátováním
@@ -11,9 +21,8 @@ používaným v kódech Pandy!)
 - Odevzdání práce přes PullRequest, jak jsme dělali v Lekci 2 a 3 *([learn more](https://help.github.com/en/articles/about-pull-requests))*. 
 
 ### Tipy
-- Jednoduchý webový server spustíš zavoláním příkazu `php -S localhost:8080 -t www/`, který ti aplikaci zpřístupní na URL: http://localhost:8080/ *([learn more](https://www.php.net/manual/en/features.commandline.webserver.php))*.
-- Zkus si [nainstalovat **PhpStorm**](https://www.jetbrains.com/phpstorm/download/), který ti hodně pomůže.
-- PhpStorm obsahuje také vestavěný webový server *([learn more](https://www.jetbrains.com/help/phpstorm/php-built-in-web-server.html))*, i ten můžeš použít – nechám na tvém uvážení, co použiješ.
-- **Nedoporučuju** použít nastavení PHP, které máme pro Pandu z důvodů:
-    - Zastaralé PHP, doporučuji tyto úkoly vykonávat nad PHP 7+ (vhodné, ale není nezbytné),
-    - V pandě je vypnuto zobrazování chyb, které ti skryje hlášení o chybách. Je vhodné mít `error_reporting` nastaveno na `E_ALL`. 
+- [PHP triky: standardní výjimky](https://phpfashion.com/php-triky-standardni-vyjimky)
+- [Kde zachytáváte výjimky?](https://php.vrana.cz/kde-zachytavate-vyjimky.php)
+- [Kde zachytávat výjimky](https://php.vrana.cz/kde-zachytavat-vyjimky.php)
+- [Ošetřování chyb](https://php.vrana.cz/osetrovani-chyb.php)
+- [Finally](https://php.vrana.cz/finally.php)

@@ -13,38 +13,50 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-printValueFromItems($items, getId());
+echo file_get_contents('./assets/nice-html.html');
 
-function printValueFromItems($items, $key)
+
+$id = getId();
+
+if ($id !== null) {
+    printValueFromItems($items, $id);
+} else {
+    printForm();
+}
+
+
+function printValueFromItems(array $items, int $id): void
 {
-    $item = getValueFromItems($items, $key);
+    $item = getValueFromItems($items, $id);
 
-    echo file_get_contents('./assets/nice-html.html');
-    if ($item != null) {
-        echo "Byla vybrána tato položka: " . $items[$key];
+    if ($item !== null) {
+        echo "Byla vybrána tato položka: " . $item;
     } else {
-        echo '<form method="get">Zadejte číslo od 1 do 8: <input name="id"><input type="submit">';
+        echo "Chyba: Zadali jste neexistující položku.";
     }
 }
 
 
-function getValueFromItems($items, $key)
+function printForm(): void
 {
-    if ($key !== null) {
-        if (isset($items[$key])) {
-            return $items[$key];
-        }
+    echo '<form method="get">Zadejte číslo: <input name="id"><input type="submit">';
+}
+
+
+function getValueFromItems(array $items, int $id): ?string
+{
+    if (isset($items[$id])) {
+        return $items[$id];
     }
+
     return null;
 }
 
 
 function getId(): ?int
 {
-    if (isset($_GET['id'])) {
-        if (is_numeric($_GET['id'])) {
-            return (int)$_GET['id'];
-        }
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        return (int)$_GET['id'];
     }
 
     return null;
