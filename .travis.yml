@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - '7.3'
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
+
+script:
+  - vendor/bin/phpcs --standard=phpcs.ruleset.xml www/
