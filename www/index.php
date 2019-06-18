@@ -13,7 +13,8 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-echo file_get_contents('./assets/nice-html.html');
+
+printNiceHtmlHeader();
 
 
 $id = getId();
@@ -22,6 +23,12 @@ if ($id !== null) {
     printValueFromItems($items, $id);
 } else {
     printForm();
+}
+
+
+function printNiceHtmlHeader(): void
+{
+    echo file_get_contents('./assets/nice-html.html');
 }
 
 
