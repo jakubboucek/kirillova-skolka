@@ -27,12 +27,10 @@ if ($id !== null) {
 
 function printValueFromItems(array $items, int $id): void
 {
-    $item = getValueFromItems($items, $id);
-
-    if ($item !== null) {
-        echo "Byla vybrána tato položka: " . $item;
-    } else {
-        echo "Chyba: Zadali jste neexistující položku.";
+    try {
+        echo "Byla vybrána tato položka: " . getValueFromItems($items, $id);
+    } catch (Exception $e) {
+        echo 'Chyba: ' . $e->getMessage() . '<br />';
     }
 }
 
@@ -49,7 +47,7 @@ function getValueFromItems(array $items, int $id): ?string
         return $items[$id];
     }
 
-    return null;
+    throw new Exception('Zadali jste neexistující položku');
 }
 
 
