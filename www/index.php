@@ -30,7 +30,7 @@ function printValueFromItems(array $items, int $id): void
     try {
         echo "Byla vybrána tato položka: " . getValueFromItems($items, $id);
     } catch (Exception $e) {
-        echo 'Chyba: ' . $e->getMessage() . '<br />';
+        echo 'Chyba: ' . $e->getMessage();
     }
 }
 
