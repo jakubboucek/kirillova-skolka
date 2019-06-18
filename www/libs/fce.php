@@ -3,7 +3,25 @@ declare(strict_types=1);
 
 function printNiceHtmlHeader(): void
 {
-    echo file_get_contents('./assets/nice-html.html');
+    // try {
+    //     $file = './assets/nice-html.html';
+    //     if (file_exists($file)) {
+    //         file_get_contents('./assets/nice-html.html');
+    //     } else {
+    //         throw new Exception('Soubor "' . $file . '" neexistuje.');
+    //     }
+    // }
+    // catch(Exception $e) {
+    //     echo 'Chyba: ' . $e->getMessage();
+    //     die;
+    // }
+
+    $file = './assets/nice-html.html';
+    if (file_exists($file)) {
+        file_get_contents('./assets/nice-html.html');
+    } else {
+        die('Chyba: soubor "' . $file . '" neexistuje.');
+    }
 }
 
 
