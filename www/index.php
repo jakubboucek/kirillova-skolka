@@ -41,7 +41,7 @@ function printForm(): void
 }
 
 
-function getValueFromItems(array $items, int $id): ?string
+function getValueFromItems(array $items, int $id): string
 {
     if (isset($items[$id])) {
         return $items[$id];
