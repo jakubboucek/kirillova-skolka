@@ -6,8 +6,7 @@ namespace Test;
 use PHPUnit\Framework\TestCase;
 
 /**
- * use ../vendor/bin/phpunit --bootstrap ../vendor/autoload.php tests/Simple.test.php
- * from project_folder/www/
+ * use vendor/bin/phpunit --bootstrap vendor/autoload.php www/tests/NumberSquareTest.php
  */
 final class NumberSquareTest extends TestCase
 {
