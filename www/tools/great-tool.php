@@ -1,8 +1,9 @@
 <?php
 declare (strict_types = 1);
 
-require '../libs/fce.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/libs/fce.php';
 
 printNiceHtmlHeader();
+getItems();
 
 echo 'This is some great tool for do anything great thinks…';

@@ -8,19 +8,19 @@ function numberSquare($n): int
 
 function getItems(): array
 {
-    $file = './data/items.json';
-    if (file_exists($file)) {
-        $items = json_decode(file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
+    $path = $_SERVER['DOCUMENT_ROOT'] . '/data/items.json';
+    if (file_exists($path)) {
+        $items = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
 
         return $items;
     }
 
-    throw new Exception('Soubor "' . $file . '" neexistuje');
+    throw new Exception('Soubor "' . $path . '" neexistuje');
 }
 
 function printNiceHtmlHeader(): void
 {
-    $headerPath = dirname(__DIR__) . '/assets/nice-html.html';
+    $headerPath = $_SERVER['DOCUMENT_ROOT'] . '/assets/nice-html.html';
 
     if (file_exists($headerPath)) {
         echo file_get_contents($headerPath);
