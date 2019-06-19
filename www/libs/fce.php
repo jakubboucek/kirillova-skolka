@@ -1,6 +1,11 @@
 <?php
 declare (strict_types = 1);
 
+function numberSquare($n): int
+{
+    return $n * $n;
+}
+
 function getItems(): array
 {
     $file = './data/items.json';
