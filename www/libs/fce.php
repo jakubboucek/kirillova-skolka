@@ -5,7 +5,7 @@ function getItems(): array
 {
     $file = './data/items.json';
     if (file_exists($file)) {
-        $items = json_decode(file_get_contents($file), true);
+        $items = json_decode(file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
 
         return $items;
     }
