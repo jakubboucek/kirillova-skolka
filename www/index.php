@@ -14,7 +14,8 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-printNiceHtmlHeader();
+
+printNiceHtmlHeader('./assets/nice-html.html');    
 
 $id = getId();
 
@@ -23,3 +24,7 @@ if ($id !== null) {
 } else {
     printForm();
 }
+
+
+
+

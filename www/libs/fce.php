@@ -1,26 +1,12 @@
 <?php
 declare(strict_types=1);
 
-function printNiceHtmlHeader(): void
+function printNiceHtmlHeader($file): void
 {
-    // try {
-    //     $file = './assets/nice-html.html';
-    //     if (file_exists($file)) {
-    //         file_get_contents('./assets/nice-html.html');
-    //     } else {
-    //         throw new Exception('Soubor "' . $file . '" neexistuje.');
-    //     }
-    // }
-    // catch(Exception $e) {
-    //     echo 'Chyba: ' . $e->getMessage();
-    //     die;
-    // }
-
-    $file = './assets/nice-html.html';
     if (file_exists($file)) {
-        file_get_contents('./assets/nice-html.html');
+        echo file_get_contents($file);
     } else {
-        die('Chyba: soubor "' . $file . '" neexistuje.');
+        throw new Exception('Soubor "' . $file . '" neexistuje.');
     }
 }
 
