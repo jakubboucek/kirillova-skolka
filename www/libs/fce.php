@@ -1,9 +1,14 @@
 <?php
-declare(strict_types=1);
+declare (strict_types = 1);
 
 function printNiceHtmlHeader(): void
 {
-    echo file_get_contents('./assets/nice-html.html');
+    $file = './assets/nice-html.html';
+    if (file_exists($file)) {
+        echo file_get_contents($file);
+    } else {
+        throw new Exception('Soubor "' . $file . '" neexistuje.');
+    }
 }
 
 
