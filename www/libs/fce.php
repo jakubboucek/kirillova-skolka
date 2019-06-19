@@ -1,6 +1,18 @@
 <?php
 declare (strict_types = 1);
 
+function getItems(): array
+{
+    $file = './data/items.json';
+    if (file_exists($file)) {
+        $items = json_decode(file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
+
+        return $items;
+    }
+
+    throw new Exception('Soubor "' . $file . '" neexistuje');
+}
+
 function printNiceHtmlHeader(): void
 {
     $file = './assets/nice-html.html';
