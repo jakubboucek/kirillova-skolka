@@ -1,0 +1,19 @@
+#float-panel {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    padding: 5px 8px;
+    background-color: #b5c0c4;
+    color: #646464;
+    font: small sans-serif;
+    border: #9da5a8 solid 1px;
+    border-radius: 3px;
+}
+
+#float-panel a {
+    color: #5d609c;
+}
+
+#float-panel:hover a, #float-panel a:active {
+    color: #1e239d;
+}
