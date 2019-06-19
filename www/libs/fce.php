@@ -20,11 +20,11 @@ function getItems(): array
 
 function printNiceHtmlHeader(): void
 {
-    $file = './assets/nice-html.html';
-    if (file_exists($file)) {
-        echo file_get_contents($file);
+    $headerPath = dirname(__DIR__) . '/assets/nice-html.html';
+    if (file_exists($headerPath)) {
+        echo file_get_contents($headerPath);
     } else {
-        throw new Exception('Soubor "' . $file . '" neexistuje.');
+        throw new Exception('Soubor "' . $headerPath . '" neexistuje.');
     }
 }
 
