@@ -13,7 +13,7 @@ final class NumberSquareTest extends TestCase
 {
     public function testNumberSquare(): void
     {
-        require($_SERVER['DOCUMENT_ROOT'] . 'libs/fce.php');
+        require($_SERVER['DOCUMENT_ROOT'] . '/libs/fce.php');
 
         $this->assertEquals(4, numberSquare(2));
         $this->assertEquals(9, numberSquare(3));
