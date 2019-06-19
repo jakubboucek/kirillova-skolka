@@ -8,7 +8,7 @@ function numberSquare($n): int
 
 function getItems(): array
 {
-    $path = $_SERVER['DOCUMENT_ROOT'] . '/data/items.json';
+    $path = __DIR__ . '/../data/items.json';
     if (file_exists($path)) {
         $items = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
 
@@ -20,7 +20,7 @@ function getItems(): array
 
 function printNiceHtmlHeader(): void
 {
-    $headerPath = $_SERVER['DOCUMENT_ROOT'] . '/assets/nice-html.html';
+    $headerPath = __DIR__ . '/../assets/nice-html.html';
 
     if (file_exists($headerPath)) {
         echo file_get_contents($headerPath);

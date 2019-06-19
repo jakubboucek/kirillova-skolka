@@ -1,6 +1,6 @@
 <?php
 declare (strict_types = 1);
-require $_SERVER['DOCUMENT_ROOT'] . '/libs/fce.php';
+require __DIR__ . '/libs/fce.php';
 
 printNiceHtmlHeader();
 
