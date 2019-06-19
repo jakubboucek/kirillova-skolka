@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare (strict_types = 1);
 require 'libs/fce.php';
 
 $items = [
@@ -14,8 +14,7 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-
-printNiceHtmlHeader('./assets/nice-html.html');    
+printNiceHtmlHeader('./assets/nice-html.html');
 
 $id = getId();
 
@@ -24,7 +23,3 @@ if ($id !== null) {
 } else {
     printForm();
 }
-
-
-
-
