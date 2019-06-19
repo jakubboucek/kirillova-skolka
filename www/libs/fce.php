@@ -1,8 +1,9 @@
 <?php
-declare(strict_types=1);
+declare (strict_types = 1);
 
-function printNiceHtmlHeader($file): void
+function printNiceHtmlHeader(): void
 {
+    $file = './assets/nice-html.html';
     if (file_exists($file)) {
         echo file_get_contents($file);
     } else {

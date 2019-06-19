@@ -14,7 +14,7 @@ $items = [
     8 => "Etiam posuere lacus quis dolor.",
 ];
 
-printNiceHtmlHeader('./assets/nice-html.html');
+printNiceHtmlHeader();
 
 $id = getId();
 
