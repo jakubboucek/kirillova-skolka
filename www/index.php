@@ -1,15 +1,18 @@
 <?php
 declare (strict_types = 1);
-require __DIR__ . '/libs/fce.php';
 
-printNiceHtmlHeader();
+require __DIR__ . '/../vendor/autoload.php';
 
-$items = getItems();
+use App\Helpers;
 
-$id = getId();
+Helpers::printNiceHtmlHeader();
+
+$items = Helpers::getItems();
+
+$id = Helpers::getId();
 
 if ($id !== null) {
-    printValueFromItems($items, $id);
+    Helpers::printValueFromItems($items, $id);
 } else {
-    printForm();
+    Helpers::printForm();
 }
