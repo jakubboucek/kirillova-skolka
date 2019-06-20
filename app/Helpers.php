@@ -43,8 +43,7 @@ class Helpers
     public static function printNiceHtmlHeader(): void
     {
         $headerPath = __DIR__ . '/../www/assets/nice-html.html';
-
-        if (file_exists($headerPath)) {
+        if (@file_get_contents($headerPath)) {
             echo file_get_contents($headerPath);
         } else {
             throw new Exception('Soubor "' . $headerPath . '" neexistuje.');
