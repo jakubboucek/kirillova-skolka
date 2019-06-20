@@ -33,7 +33,7 @@ class Helpers
 
     public static function printNiceHtmlHeader(): void
     {
-        $headerPath = __DIR__ . '/../assets/nice-html.html';
+        $headerPath = __DIR__ . '/../www/assets/nice-html.html';
 
         if (file_exists($headerPath)) {
             echo file_get_contents($headerPath);

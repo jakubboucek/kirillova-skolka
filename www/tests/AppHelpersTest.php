@@ -3,7 +3,6 @@ declare (strict_types = 1);
 
 namespace Test;
 
-// use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use App\Helpers;
 

@@ -5,14 +5,14 @@ declare (strict_types = 1);
 require __DIR__ . '/../vendor/autoload.php';
 // use App\Helpers;
 
-Helpers::printNiceHtmlHeader();
+App\Helpers::printNiceHtmlHeader();
 
-$items = Helpers::getItems();
+$items = App\Helpers::getItems();
 
-$id = Helpers::getId();
+$id = App\Helpers::getId();
 
 if ($id !== null) {
-    Helpers::printValueFromItems($items, $id);
+    App\Helpers::printValueFromItems($items, $id);
 } else {
-    Helpers::printForm();
+    App\Helpers::printForm();
 }
