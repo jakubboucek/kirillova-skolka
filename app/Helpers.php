@@ -45,7 +45,7 @@ class Helpers
         $headerPath = __DIR__ . '/../www/assets/nice-html.html';
         $content = @file_get_contents($headerPath);
         if ($content === false) {
-            throw new Exception('Soubor "' . $headerPath . '" neexistuje nebo přístup byl odepřen.');
+            throw new Exception('Soubor "' . $headerPath . '" se nepodařilo načíst.');
         }
         echo $content;
     }
