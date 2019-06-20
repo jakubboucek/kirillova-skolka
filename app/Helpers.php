@@ -14,13 +14,17 @@ class Helpers
 
     public static function printSomething($n): void
     {
-        if (gettype($n) == 'string') {
+        if (is_string($n)) {
             echo $n;
         } else {
             echo (string)$n;
         }
     }
 
+    /**
+     * @return array
+     * @throws Exception
+     */
     public static function getItems(): array
     {
         $path = __DIR__ . '/../www/data/items.json';
@@ -50,12 +54,18 @@ class Helpers
     public static function printValueFromItems(array $items, int $id): void
     {
         try {
-            echo 'Byla vybrána tato položka: ' . Helpers::getValueFromItems($items, $id);
+            echo 'Byla vybrána tato položka: ' . self::getValueFromItems($items, $id);
         } catch (Exception $e) {
             echo 'Chyba: ' . $e->getMessage();
         }
     }
 
+    /**
+     * @param array $items
+     * @param int $id
+     * @return string
+     * @throws Exception
+     */
     public static function getValueFromItems(array $items, int $id): string
     {
         if (isset($items[$id])) {

@@ -1,11 +1,9 @@
 <?php
 declare (strict_types = 1);
-// require __DIR__ . '/libs/fce.php';
-
-use App\Helpers;
 
 require __DIR__ . '/../vendor/autoload.php';
-// use App\Helpers;
+
+use App\Helpers;
 
 Helpers::printNiceHtmlHeader();
 
