@@ -3,6 +3,8 @@ declare (strict_types = 1);
 
 namespace App;
 
+use Exception;
+
 class Helpers
 {
     public static function numberSquare($n): int
@@ -28,9 +30,12 @@ class Helpers
             return $items;
         }
 
-        throw new \Exception('Soubor "' . $path . '" neexistuje');
+        throw new Exception('Soubor "' . $path . '" neexistuje');
     }
 
+    /**
+     * @throws Exception
+     */
     public static function printNiceHtmlHeader(): void
     {
         $headerPath = __DIR__ . '/../www/assets/nice-html.html';
@@ -38,7 +43,7 @@ class Helpers
         if (file_exists($headerPath)) {
             echo file_get_contents($headerPath);
         } else {
-            throw new \Exception('Soubor "' . $headerPath . '" neexistuje.');
+            throw new Exception('Soubor "' . $headerPath . '" neexistuje.');
         }
     }
 
@@ -57,7 +62,7 @@ class Helpers
             return $items[$id];
         }
 
-        throw new \Exception('Zadali jste neexistující položku');
+        throw new Exception('Zadali jste neexistující položku');
     }
 
     public static function getId(): ?int

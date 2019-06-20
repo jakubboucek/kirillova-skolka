@@ -2,17 +2,19 @@
 declare (strict_types = 1);
 // require __DIR__ . '/libs/fce.php';
 
+use App\Helpers;
+
 require __DIR__ . '/../vendor/autoload.php';
 // use App\Helpers;
 
-\App\Helpers::printNiceHtmlHeader();
+Helpers::printNiceHtmlHeader();
 
-$items = \App\Helpers::getItems();
+$items = Helpers::getItems();
 
-$id = \App\Helpers::getId();
+$id = Helpers::getId();
 
 if ($id !== null) {
-    \App\Helpers::printValueFromItems($items, $id);
+    Helpers::printValueFromItems($items, $id);
 } else {
-    \App\Helpers::printForm();
+    Helpers::printForm();
 }
