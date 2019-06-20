@@ -56,12 +56,6 @@ final class AppHelpersTest extends TestCase
         ];
     }
 
-    public function testGetItems(): void
-    {
-        $items = self::getItems();
-        $this->assertEquals($items, Helpers::getItems());
-    }
-
 //     public function testGetItemsWithBadPath(): void
 //     {
 //         $this->expectException(\Exception::class);
@@ -79,13 +73,12 @@ final class AppHelpersTest extends TestCase
     /**
      * Use dataProvider for creating group of same tests
      *
-     * @depends      testGetItems
      * @dataProvider additionIdProvider
      * @param int $id
      */
     public function testPrintValueFromItems($id): void
     {
-        $items = self::getItems();
+        $items = Helpers::getItems();
 
         $this->expectOutputString("Byla vybrána tato položka: " . $items[$id]);
         Helpers::printValueFromItems($items, $id);
@@ -93,7 +86,7 @@ final class AppHelpersTest extends TestCase
 
     public function additionIdProvider(): array
     {
-        $items = self::getItems();
+        $items = Helpers::getItems();
         $temp = array();
         foreach ($items as $key => $value) {
             $temp[][] = $key;
@@ -105,13 +98,12 @@ final class AppHelpersTest extends TestCase
      * Use depends for creating dependecies from other tests
      *
      * @depends      testPrintValueFromItems
-     * @depends      testGetItems
      * @dataProvider additionBadIdProvider
      * @param $id
      */
     public function testBadIdPrintValueFromItems($id): void
     {
-        $items = self::getItems();
+        $items = Helpers::getItems();
 
         Helpers::printValueFromItems($items, $id);
         $this->expectOutputString('Chyba: Zadali jste neexistující položku');
@@ -119,7 +111,7 @@ final class AppHelpersTest extends TestCase
 
     public function additionBadIdProvider(): ?array
     {
-        $items = self::getItems();
+        $items = Helpers::getItems();
         $temp = array();
         for ($i = -20; $i < 40; $i++) {
             if (!isset($items[$i])) {
@@ -128,15 +120,5 @@ final class AppHelpersTest extends TestCase
         }
 
         return $temp;
-    }
-
-    private function getItems(): array
-    {
-        $path = __DIR__ . '/../data/items.json';
-        if (file_exists($path)) {
-            $items = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
-            return $items;
-        }
-        return null;
     }
 }
