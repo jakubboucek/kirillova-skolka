@@ -3,6 +3,8 @@ declare (strict_types = 1);
 
 namespace App;
 
+use App\Storage\FileStorage;
+use App\Storage\JsonStorage;
 use Exception;
 
 class Helpers

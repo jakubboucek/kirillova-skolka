@@ -3,10 +3,10 @@ declare (strict_types = 1);
 
 namespace Test;
 
+use App\Helpers;
+use App\Storage\FileStorage;
 use Exception;
 use PHPUnit\Framework\TestCase;
-use App\Helpers;
-use App\FileStorage;
 
 /**
  * use
