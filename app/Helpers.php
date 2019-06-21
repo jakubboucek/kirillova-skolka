@@ -27,7 +27,7 @@ class Helpers
      */
     public static function getItems(): array
     {
-        $path = __DIR__ . '/../www/data/items.json';
+        $path = __DIR__ . '/../data/items.json';
 
         return JsonStorage::read($path);
     }
