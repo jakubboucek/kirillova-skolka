@@ -28,26 +28,14 @@ class Helpers
     public static function getItems(): array
     {
         $path = __DIR__ . '/../www/data/items.json';
-        if (file_exists($path)) {
-            $items = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
-
-            return $items;
-        }
-
-        throw new Exception('Soubor "' . $path . '" neexistuje');
+        $items = json_decode(FileStorage::read($path), true, 512, JSON_THROW_ON_ERROR);
+        return $items;
     }
 
-    /**
-     * @throws Exception
-     */
     public static function printNiceHtmlHeader(): void
     {
         $headerPath = __DIR__ . '/../www/assets/nice-html.html';
-        $content = @file_get_contents($headerPath);
-        if ($content === false) {
-            throw new Exception('Soubor "' . $headerPath . '" se nepodařilo načíst.');
-        }
-        echo $content;
+        echo FileStorage::read($headerPath);
     }
 
     public static function printValueFromItems(array $items, int $id): void
