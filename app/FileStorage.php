@@ -5,11 +5,11 @@ namespace App;
 
 use Exception;
 
-/**
- * @throws Exception
- */
 class FileStorage
 {
+    /**
+     * @throws Exception
+     */
     public static function read(string $filename): string
     {
         $content = @file_get_contents($filename);
