@@ -43,12 +43,11 @@ class Helpers
     public static function printNiceHtmlHeader(): void
     {
         $headerPath = __DIR__ . '/../www/assets/nice-html.html';
-
-        if (file_exists($headerPath)) {
-            echo file_get_contents($headerPath);
-        } else {
-            throw new Exception('Soubor "' . $headerPath . '" neexistuje.');
+        $content = @file_get_contents($headerPath);
+        if ($content === false) {
+            throw new Exception('Soubor "' . $headerPath . '" se nepodařilo načíst.');
         }
+        echo $content;
     }
 
     public static function printValueFromItems(array $items, int $id): void
