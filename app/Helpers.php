@@ -27,9 +27,12 @@ class Helpers
      */
     public static function getItems(): array
     {
+        // $path = __DIR__ . '/../www/data/items.json';
+        // $items = json_decode(FileStorage::read($path), true, 512, JSON_THROW_ON_ERROR);
+        // return $items;
         $path = __DIR__ . '/../www/data/items.json';
-        $items = json_decode(FileStorage::read($path), true, 512, JSON_THROW_ON_ERROR);
-        return $items;
+
+        return JsonStorage::read($path);
     }
 
     public static function printNiceHtmlHeader(): void

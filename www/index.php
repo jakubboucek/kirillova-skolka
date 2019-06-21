@@ -5,6 +5,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use App\Helpers;
 
+echo json_encode(["a" => "b", "b", "c"]) . '<br />';
+echo json_encode(["a", "b", "c"]);
+
 Helpers::printNiceHtmlHeader();
 
 $items = Helpers::getItems();
