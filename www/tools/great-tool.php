@@ -4,7 +4,6 @@ declare (strict_types = 1);
 use App\Helpers;
 
 require __DIR__ . '/../../vendor/autoload.php';
-// require __DIR__ . '/../libs/fce.php';
 
 Helpers::printNiceHtmlHeader();
 Helpers::getItems();

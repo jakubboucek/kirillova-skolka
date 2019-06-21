@@ -9,20 +9,26 @@ use App\Helpers;
 use App\FileStorage;
 
 /**
- * use vendor/bin/phpunit --bootstrap vendor/autoload.php www/tests/AppHelpersTest.php
+ * use
+ *  vendor/bin/phpunit --bootstrap vendor/autoload.php www/tests/AppHelpersTest.php
  */
 final class AppHelpersTest extends TestCase
 {
+    /**
+     * Tests example
+     *
+     * @return void
+     */
     public function testNumberSquare(): void
     {
         $this->assertEquals(4, Helpers::numberSquare(2));
-        //        $this->assertEquals(9, Helpers::numberSquare(3));
-        //        $this->assertEquals(16, Helpers::numberSquare(4));
-        //        $this->assertEquals(25, Helpers::numberSquare(5));
-        //
-        //        for ($i = -30; $i < 30; $i++) {
-        //            $this->assertEquals(pow($i, 2), Helpers::numberSquare($i));
-        //        }
+        $this->assertEquals(9, Helpers::numberSquare(3));
+        $this->assertEquals(16, Helpers::numberSquare(4));
+        $this->assertEquals(25, Helpers::numberSquare(5));
+
+        for ($i = -30; $i < 30; $i++) {
+            $this->assertEquals(pow($i, 2), Helpers::numberSquare($i));
+        }
     }
 
     /**
@@ -57,19 +63,6 @@ final class AppHelpersTest extends TestCase
         ];
     }
 
-    //     public function testGetItemsWithBadPath(): void
-    //     {
-    //         $this->expectException(\Exception::class);
-    //
-    //         Helpers::getItems();
-    //     }
-
-    //     public function testPrintNiceHtmlHeaderWithBadPath(): void
-    //     {
-    //         $this->expectException(\Exception::class);
-    //
-    //         Helpers::printNiceHtmlHeader();
-    //     }
 
     /**
      * Use dataProvider for creating group of same tests
@@ -131,8 +124,8 @@ final class AppHelpersTest extends TestCase
      */
     public function testBadFileStorageRead($path): void
     {
-        $this->expectException(\Exception::class);
-    
+        $this->expectException(Exception::class);
+
         FileStorage::read($path);
     }
 
