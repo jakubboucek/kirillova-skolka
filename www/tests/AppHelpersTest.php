@@ -6,22 +6,23 @@ namespace Test;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use App\Helpers;
+use App\FileStorage;
 
 /**
  * use vendor/bin/phpunit --bootstrap vendor/autoload.php www/tests/AppHelpersTest.php
-*/
+ */
 final class AppHelpersTest extends TestCase
 {
     public function testNumberSquare(): void
     {
         $this->assertEquals(4, Helpers::numberSquare(2));
-//        $this->assertEquals(9, Helpers::numberSquare(3));
-//        $this->assertEquals(16, Helpers::numberSquare(4));
-//        $this->assertEquals(25, Helpers::numberSquare(5));
-//
-//        for ($i = -30; $i < 30; $i++) {
-//            $this->assertEquals(pow($i, 2), Helpers::numberSquare($i));
-//        }
+        //        $this->assertEquals(9, Helpers::numberSquare(3));
+        //        $this->assertEquals(16, Helpers::numberSquare(4));
+        //        $this->assertEquals(25, Helpers::numberSquare(5));
+        //
+        //        for ($i = -30; $i < 30; $i++) {
+        //            $this->assertEquals(pow($i, 2), Helpers::numberSquare($i));
+        //        }
     }
 
     /**
@@ -56,19 +57,19 @@ final class AppHelpersTest extends TestCase
         ];
     }
 
-//     public function testGetItemsWithBadPath(): void
-//     {
-//         $this->expectException(\Exception::class);
-//
-//         Helpers::getItems();
-//     }
+    //     public function testGetItemsWithBadPath(): void
+    //     {
+    //         $this->expectException(\Exception::class);
+    //
+    //         Helpers::getItems();
+    //     }
 
-//     public function testPrintNiceHtmlHeaderWithBadPath(): void
-//     {
-//         $this->expectException(\Exception::class);
-//
-//         Helpers::printNiceHtmlHeader();
-//     }
+    //     public function testPrintNiceHtmlHeaderWithBadPath(): void
+    //     {
+    //         $this->expectException(\Exception::class);
+    //
+    //         Helpers::printNiceHtmlHeader();
+    //     }
 
     /**
      * Use dataProvider for creating group of same tests
@@ -109,7 +110,7 @@ final class AppHelpersTest extends TestCase
         $this->expectOutputString('Chyba: Zadali jste neexistující položku');
     }
 
-    public function additionBadIdProvider(): ?array
+    public function additionBadIdProvider(): array
     {
         $items = Helpers::getItems();
         $temp = array();
@@ -120,5 +121,61 @@ final class AppHelpersTest extends TestCase
         }
 
         return $temp;
+    }
+
+    /**
+     * Test bad pathes or without access
+     *
+     * @dataProvider additionBadPathesProvider
+     * @param $path
+     */
+    public function testBadFileStorageRead($path): void
+    {
+        $this->expectException(\Exception::class);
+    
+        FileStorage::read($path);
+    }
+
+    public function additionBadPathesProvider(): array
+    {
+        return [
+            ['one_bad_path.php'],
+            ['non_exist_path.php'],
+            ['bsd_path.php'],
+            ['asda_exist_path.php'],
+            ['weq2123_exist_path.php'],
+            ['dcsnon_exist_path.php'],
+            [__DIR__ . '/../www/assets/nice-html.html']
+        ];
+    }
+
+    /**
+     * Test open good pathes with access
+     *
+     * @dataProvider additionPathesProvider
+     * @param $path
+     */
+    public function testFileStorageRead($path): void
+    {
+        $this->assertEquals(@file_get_contents($path), FileStorage::read($path));
+    }
+
+    /**
+     * Add here some good pathes
+     *
+     * @return array
+     */
+    public function additionPathesProvider(): array
+    {
+        // Add here some true pathes
+        return [
+            [__DIR__ . '/../../composer.json'],
+            [__DIR__ . '/../index.php'],
+            [__DIR__ . '/../../.gitignore'],
+            [__DIR__ . '/../../README.md'],
+            [__DIR__ . '/../tools/great-tool.php'],
+            [__DIR__ . '/../data/items.json'],
+            [__DIR__ . '/../assets/nice-html.html']
+        ];
     }
 }
