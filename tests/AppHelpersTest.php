@@ -3,14 +3,14 @@ declare (strict_types = 1);
 
 namespace Test;
 
+use App\Helpers;
+use App\Storage\FileStorage;
 use Exception;
 use PHPUnit\Framework\TestCase;
-use App\Helpers;
-use App\FileStorage;
 
 /**
  * use
- *  vendor/bin/phpunit --bootstrap vendor/autoload.php www/tests/AppHelpersTest.php
+ *  vendor/bin/phpunit --bootstrap vendor/autoload.php tests/AppHelpersTest.php
  */
 final class AppHelpersTest extends TestCase
 {
@@ -138,7 +138,7 @@ final class AppHelpersTest extends TestCase
             ['asda_exist_path.php'],
             ['weq2123_exist_path.php'],
             ['dcsnon_exist_path.php'],
-            [__DIR__ . '/../www/assets/nice-html.html']
+            [__DIR__ . '/www/assets/nice-html.html']
         ];
     }
 
@@ -162,13 +162,13 @@ final class AppHelpersTest extends TestCase
     {
         // Add here some true pathes
         return [
-            [__DIR__ . '/../../composer.json'],
-            [__DIR__ . '/../index.php'],
-            [__DIR__ . '/../../.gitignore'],
-            [__DIR__ . '/../../README.md'],
-            [__DIR__ . '/../tools/great-tool.php'],
+            [__DIR__ . '/../composer.json'],
+            [__DIR__ . '/../www/index.php'],
+            [__DIR__ . '/../.gitignore'],
+            [__DIR__ . '/../README.md'],
+            [__DIR__ . '/../www/tools/great-tool.php'],
             [__DIR__ . '/../data/items.json'],
-            [__DIR__ . '/../assets/nice-html.html']
+            [__DIR__ . '/../www/assets/nice-html.html']
         ];
     }
 }

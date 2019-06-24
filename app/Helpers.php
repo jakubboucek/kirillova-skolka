@@ -3,6 +3,8 @@ declare (strict_types = 1);
 
 namespace App;
 
+use App\Storage\FileStorage;
+use App\Storage\JsonStorage;
 use Exception;
 
 class Helpers
@@ -27,7 +29,7 @@ class Helpers
      */
     public static function getItems(): array
     {
-        $path = __DIR__ . '/../www/data/items.json';
+        $path = __DIR__ . '/../data/items.json';
 
         return JsonStorage::read($path);
     }
