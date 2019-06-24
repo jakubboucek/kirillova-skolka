@@ -31,7 +31,7 @@ class Helpers
     {
         $path = __DIR__ . '/../data/items.json';
 
-        return JsonStorage::read($path);
+        return JsonStorage::readArray($path);
     }
 
     public static function printNiceHtmlHeader(): void
