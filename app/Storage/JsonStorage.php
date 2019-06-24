@@ -7,9 +7,14 @@ use Exception;
 
 class JsonStorage
 {
-    public static function read(string $filename): array
+    public static function read(string $filename)
     {
-        $items = json_decode(FileStorage::read($filename), true, 512, JSON_THROW_ON_ERROR);
+        return json_decode(FileStorage::read($filename), true, 512, JSON_THROW_ON_ERROR);
+    }
+
+    public static function readArray(string $filename): array
+    {
+        $items = self::read($filename);
         if (is_array($items)) {
             return $items;
         }
