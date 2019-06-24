@@ -7,7 +7,7 @@ use Exception;
 
 class JsonStorage
 {
-    public static function read(string $filename): object
+    public static function read(string $filename)
     {
         return json_decode(FileStorage::read($filename), false, 512, JSON_THROW_ON_ERROR);
     }
